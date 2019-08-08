@@ -1,7 +1,11 @@
 # .gitignore
 
 # Datasets
-datasets/
+datasets/aracati/data.csv
+datasets/aracati/images
+datasets/aracati/test
+datasets/aracati/train
+datasets/aracati/validation
 
 # Executions
 executions/
