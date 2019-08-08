@@ -1,0 +1,10 @@
+# .gitignore
+
+# Datasets
+datasets/
+
+# Executions
+executions/
+
+# IDE Preferences
+.idea/
