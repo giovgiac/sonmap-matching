@@ -12,6 +12,7 @@ import tensorflow as tf
 
 class DizygoticNet(BaseModel):
     def __init__(self, filters: int, loss: tf.keras.losses.Loss, optimizer: tf.keras.optimizers.Optimizer):
+        # Invoke parent class constructor.
         super(DizygoticNet, self).__init__(loss, optimizer, name="DizygoticNet")
 
         # Store network architecture hyperparameters.
@@ -42,6 +43,14 @@ class DizygoticNet(BaseModel):
         self.dense_2 = tf.keras.layers.Dense(units=512, activation='relu')
         self.dense_3 = tf.keras.layers.Dense(units=64, activation='relu')
         self.dense_4 = tf.keras.layers.Dense(units=1, activation='sigmoid')
+
+        # Generate random fake data.
+        x = tf.random.uniform(shape=(self.config.batch_size,) + self.config.input_shape, minval=0.0, maxval=1.0,
+                              dtype=tf.float32)
+
+        # Build model and print summary.
+        self([x, x], training=False)
+        self.summary()
 
     def call(self, inputs, training=None, mask=None) -> tf.Tensor:
         [x, y] = inputs

@@ -38,6 +38,7 @@ def main(argv) -> None:
         loss = tf.keras.losses.BinaryCrossentropy()
         optimizer = tf.keras.optimizers.Adam(learning_rate=config.learning_rate)
         model = DizygoticNet(filters=config.filters, loss=loss, optimizer=optimizer)
+
         if config.mode == "restore":
             model.load_checkpoint()
 

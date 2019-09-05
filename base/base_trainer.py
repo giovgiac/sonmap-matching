@@ -24,7 +24,6 @@ class BaseTrainer(abc.ABC):
         self.valid_dataset = valid_dataset
 
         # Build and print model summary.
-        # self.model.build(input_shape=self.train_dataset.input_shape)
         # TODO: Verify the reason why model summary is failing with weird internal TensorFlow errors.
         # self.model.summary(print_fn=logging.info)
 

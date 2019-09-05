@@ -30,6 +30,7 @@ class BaseModel(abc.ABC, tf.keras.Model):
 
     def load_checkpoint(self) -> None:
         latest_checkpoint = tf.train.latest_checkpoint(checkpoint_dir=self.config.checkpoint_dir)
+        print(self.variables)
         if latest_checkpoint:
             logging.info("Restoring Model Checkpoint {}...".format(latest_checkpoint))
             self.saver.restore(save_path=latest_checkpoint)

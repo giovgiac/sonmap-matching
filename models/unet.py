@@ -13,6 +13,7 @@ import tensorflow as tf
 
 class UNet(BaseModel):
     def __init__(self, filters: int, loss: tf.keras.losses.Loss, optimizer: tf.keras.optimizers.Optimizer):
+        # Invoke parent class constructor.
         super(UNet, self).__init__(loss, optimizer, name="U-Net")
 
         # Store network architecture hyperparameters.
